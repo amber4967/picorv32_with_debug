@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
+    <FileList>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\debug_port\uart_debug.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\gowin_sp\SRAM0.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\gowin_sp\SRAM1.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\gowin_sp\SRAM2.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\gowin_sp\SRAM3.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\mem_mux.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\top.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\uart\uart_recv.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\debug_picorv32\src\uart\uart_txd.v" type="verilog"/>
+        <File path="D:\test\picorv32_with_debug\picorv32\picorv32.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="50.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\test\picorv32_with_debug\debug_picorv32\impl\gwsynthesis\debug_picorv32.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="top"/>
+        <Option type="vcc" value="1.2"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

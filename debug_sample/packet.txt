@@ -1,0 +1,503 @@
+
+w +$qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+#df
+r +$PacketSize=1000;qXfer:memory-map:read+;qXfer:features:read+;qXfer:threads:read-;QStartNoAckMode+;vContSupported+#01
+w +$vMustReplyEmpty#3a
+r +$#00
+w +$QStartNoAckMode#b0
+r +$OK#9A
+w +$Hg0#df
+r +$OK#9A
+w $qXfer:features:read:target.xml:0,ffb#79
+r +$l<?xml version="1.0"?>\n<!DOCTYPE target SYSTEM "gdb-target.dtd">\n<target version="1.0">\n<architecture>riscv:rv32</architecture>\n<feature name="org.gnu.gdb.riscv.cpu">\n<reg name="zero" bitsize="32" regnum="0" save-restore="yes" type="int" group="general"/>\n<reg name="ra" bitsize="32" regnum="1" save-restore="yes" type="int" group="general"/>\n<reg name="sp" bitsize="32" regnum="2" save-restore="yes" type="data_ptr" group="general"/>\n<reg name="gp" bitsize="32" regnum="3" save-restore="yes" type="int" group="general"/>\n<reg name="tp" bitsize="32" regnum="4" save-restore="yes" type="int" group="general"/>\n<reg name="t0" bitsize="32" regnum="5" save-restore="yes" type="int" group="general"/>\n<reg name="t1" bitsize="32" regnum="6" save-restore="yes" type="int" group="general"/>\n<reg name="t2" bitsize="32" regnum="7" save-restore="yes" type="int" group="general"/>\n<reg name="fp" bitsize="32" regnum="8" save-restore="yes" type="int" group="general"/>\n<reg name="s1" bitsize="32" regnum="9" save-restore="yes" type="int" group="general"/>\n<reg name="a0" bitsize="32" regnum="10" save-restore="yes" type="int" group="general"/>\n<reg name="a1" bitsize="32" regnum="11" save-restore="yes" type="int" group="general"/>\n<reg name="a2" bitsize="32" regnum="12" save-restore="yes" type="int" group="general"/>\n<reg name="a3" bitsize="32" regnum="13" save-restore="yes" type="int" group="general"/>\n<reg name="a4" bitsize="32" regnum="14" save-restore="yes" type="int" group="general"/>\n<reg name="a5" bitsize="32" regnum="15" save-restore="yes" type="int" group="general"/>\n<reg name="a6" bitsize="32" regnum="16" save-restore="yes" type="int" group="general"/>\n<reg name="a7" bitsize="32" regnum="17" save-restore="yes" type="int" group="general"/>\n<reg name="s2" bitsize="32" regnum="18" save-restore="yes" type="int" group="general"/>\n<reg name="s3" bitsize="32" regnum="19" save-restore="yes" type="int" group="general"/>\n<reg name="s4" bitsize="32" regnum="20" save-restore="yes" type="int" group="general"/>\n<reg name="s5" bitsize="32" regnum="21" save-restore="yes" type="int" group="general"/>\n<reg name="s6" bitsize="32" regnum="22" save-restore="yes" type="int" group="general"/>\n<reg name="s7" bitsize="32" regnum="23" save-restore="yes" type="int" group="general"/>\n<reg name="s8" bitsize="32" regnum="24" save-restore="yes" type="int" group="general"/>\n<reg name="s9" bitsize="32" regnum="25" save-restore="yes" type="int" group="general"/>\n<reg name="s10" bitsize="32" regnum="26" save-restore="yes" type="int" group="general"/>\n<reg name="s11" bitsize="32" regnum="27" save-restore="yes" type="int" group="general"/>\n<reg name="t3" bitsize="32" regnum="28" save-restore="yes" type="int" group="general"/>\n<reg name="t4" bitsize="32" regnum="29" save-restore="yes" type="int" group="general"/>\n<reg name="t5" bitsize="32" regnum="30" save-restore="yes" type="int" group="general"/>\n<reg name="t6" bitsize="32" regnum="31" save-restore="yes" type="int" group="general"/>\n<reg name="pc" bitsize="32" regnum="32" save-restore="yes" type="int" group="general"/>\n</feature>\n<feature name="org.gnu.gdb.riscv.csr">\n<reg name="q0" bitsize="32" regnum="33" save-restore="yes" type="int" group="qreg"/>\n<reg name="q1" bitsize="32" regnum="34" save-restore="yes" type="int" group="qreg"/>\n<reg name="q2" bitsize="32" regnum="35" save-restore="yes" type="int" group="qreg"/>\n<reg name="q3" bitsize="32" regnum="36" save-restore="yes" type="int" group="qreg"/>\n</feature>\n</target>#94
+w $qTStatus#49
+r +$#00
+w $?#3f
+r +$S05#B8
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $qAttached#8f
+r +$1#31
+w $Hc-1#09
+r +$#00
+w $qC#b4
+r +$#00
+w $qOffsets#4b
+r +$Text=0;Data=0;Bss=0#04
+w $g#67
+r +$0000000000000000a000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001eaee0000fafffffffbffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e4000000#51
+w $qXfer:memory-map:read::0,ffb#18
+r +$l<memory-map>\n<memory type="flash" start="0x00000000" length="0x08000000">\n<property name="blocksize">0x400</property>\n</memory>\n</memory-map>0000#00
+w $m80,40#65
+r +$130e0000930e0000130f0000930f00009301800f171100001301c1f6ef000001000000000000000000000000b70700011307100023a0e70093060000b7070100#3E
+w $mac,4#91
+r +$b7070001#C1
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $qSymbol::#5b
+r +$OK#9A
+c 
+c 
+c 1017-thread-info 1
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+c 
+c 
+c 1018-interpreter-exec console "monitor reset_halt"
+c monitor reset_halt
+w $qRcmd,72657365745f68616c74#ab
+r +$OK#9A
+c 
+c 
+c 1019-interpreter-exec console "stepi"
+c stepi
+w $Z0,ac,4#da
+r +$OK#9A
+w $vCont?#49
+r +$vCont;c;C;s;S#62
+w $vCont;s:0;c#c0
+r <Timeout: 0 seconds>+$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001eaee0000fafffffffbffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014000000#1D
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,ac,4#fa
+r +$OK#9A
+c 
+c 
+c 1020-break-insert -f main.c:11
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $md4,4#65
+r +$13971700#9C
+c 
+c 
+c 1021-symbol-list-lines D:\\GaoYun_pro\\debug_picorv32_demo\\picorv32\\main.c
+c 
+c 
+c 1022-thread-info
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+c 
+c 
+c 1023-stack-list-frames 0 1000
+c 
+c 
+c 1024-list-features
+c 
+c 
+c 1025-stack-list-arguments 0 0 1
+c 
+c 
+c 1026-stack-list-arguments 0 0 1
+c 
+c 
+c 1027-var-create  - * "j"
+c 
+c 
+c 1028-stack-list-variables 0
+c 
+c 
+c 1029-exec-next 
+c next&
+w $m80,40#65
+r +$130e0000930e0000130f0000930f00009301800f171100001301c1f6ef000001000000000000000000000000b70700011307100023a0e70093060000b7070100#3E
+w $Z0,ac,4#da
+r +$OK#9A
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;s:0;c#c0
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$00000000000000000000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001eaee0000fafffffffbffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018000000#F0
+w $m14,2#30
+r +$9300#CC
+w $m16,2#32
+r +$0000#C0
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,ac,4#fa
+r +$OK#9A
+w $z0,d4,4#ce
+r +$OK#9A
+c 1030-stack-list-frames 0 1000
+c 
+c 
+c 1031-stack-list-arguments 0 0 1
+c 
+c 
+c 1032-var-create  - * "j"
+c 
+c 
+c 1033-stack-list-variables 0
+c 
+c 
+c 1034-exec-next 
+c next&
+w $m80,40#65
+r +$130e0000930e0000130f0000930f00009301800f171100001301c1f6ef000001000000000000000000000000b70700011307100023a0e70093060000b7070100#3E
+w $Z0,ac,4#da
+r +$OK#9A
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;s:0;c#c0
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$00000000000000000000000000000000f8000000000000000000000000000000000000000000000000000000000000000000000000000001eaee0000fafffffffbffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001c000000#1A
+w $m14,2#30
+r +$9300#CC
+w $m16,2#32
+r +$0000#C0
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,ac,4#fa
+r +$OK#9A
+w $z0,d4,4#ce
+r +$OK#9A
+c 1035-stack-list-frames 0 1000
+c 
+c 
+c 1036-stack-list-arguments 0 0 1
+c 
+c 
+c 1037-var-create  - * "j"
+c 
+c 
+c 1038-stack-list-variables 0
+c 
+c 
+c -exec-continue
+w $m80,40#65
+r +$130e0000930e0000130f0000930f00009301800f171100001301c1f6ef000001000000000000000000000000b70700011307100023a0e70093060000b7070100#3E
+w $Z0,ac,4#da
+r +$OK#9A
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000120000000fafffffffbffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#82
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,ac,4#fa
+r +$OK#9A
+w $z0,d4,4#ce
+r +$OK#9A
+c 1039-stack-list-frames 0 1000
+c 
+c 
+c 1040-break-delete 1
+c delete breakpoint 1
+c 
+c 
+c 1041-stack-list-arguments 0 0 0
+c 
+c 
+c 1042-var-create  - * "j"
+c 
+c 
+c 1043-var-set-format var4 zero-hexadecimal
+c 
+c 
+c 1044-stack-list-variables 0
+c 
+c 
+c 1045-var-create  - * "i"
+c 
+c 
+c 1046-var-create  - * "j"
+c 
+c 
+c -exec-continue
+w $vCont;s:0;c:0#2a
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000120000000f6fffffffbffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d8000000#5B
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000142000000befffffffeffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#89
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,d4,4#ce
+r +$OK#9A
+c 1047-stack-list-frames 0 1000
+c 
+c 
+c 1048-var-delete var4
+c 
+c 
+c 1049-var-delete var5
+c 
+c 
+c 1050-var-delete var6
+c 
+c 
+c 1051-stack-list-arguments 0 0 0
+c 
+c 
+c 1052-var-create  - * "j"
+c 
+c 
+c 1053-var-set-format var7 zero-hexadecimal
+c 
+c 
+c 1054-stack-list-variables 0
+c 
+c 
+c 1055-var-create  - * "i"
+c 
+c 
+c 1056-var-create  - * "j"
+c 
+c 
+c -exec-continue
+w $vCont;s:0;c:0#2a
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000142000000fcfffffffeffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d8000000#8F
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000164000000eeffffffefffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#90
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,d4,4#ce
+r +$OK#9A
+c 1057-stack-list-frames 0 1000
+c 
+c 
+c 1058-var-delete var7
+c 
+c 
+c 1059-var-delete var8
+c 
+c 
+c 1060-var-delete var9
+c 
+c 
+c 1061-stack-list-arguments 0 0 0
+c 
+c 
+c 1062-var-create  - * "j"
+c 
+c 
+c 1063-var-set-format var10 zero-hexadecimal
+c 
+c 
+c 1064-stack-list-variables 0
+c 
+c 
+c 1065-var-create  - * "i"
+c 
+c 
+c 1066-var-create  - * "j"
+c 
+c 
+c -exec-continue
+w $vCont;s:0;c:0#2a
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000164000000deffffffefffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d8000000#93
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000186000000fafffffffbffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#8E
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,d4,4#ce
+r +$OK#9A
+c 1067-stack-list-frames 0 1000
+c 
+c 
+c 1068-var-delete var10
+c 
+c 
+c 1069-var-delete var11
+c 
+c 
+c 1070-var-delete var12
+c 
+c 
+c 1071-stack-list-arguments 0 0 0
+c 
+c 
+c 1072-var-create  - * "j"
+c 
+c 
+c 1073-var-set-format var13 zero-hexadecimal
+c 
+c 
+c 1074-stack-list-variables 0
+c 
+c 
+c 1075-var-create  - * "i"
+c 
+c 
+c 1076-var-create  - * "j"
+c 
+c 
+c -exec-continue
+w $vCont;s:0;c:0#2a
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f800000000000000000000000000000000000000000000000000000000000000000000000000000186000000f6fffffffbffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d8000000#67
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001a8000000befffffffeffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#BC
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,d4,4#ce
+r +$OK#9A
+c 1077-stack-list-frames 0 1000
+c 
+c 
+c 1078-var-delete var13
+c 
+c 
+c 1079-var-delete var14
+c 
+c 
+c 1080-var-delete var15
+c 
+c 
+c 1081-stack-list-arguments 0 0 0
+c 
+c 
+c 1082-var-create  - * "j"
+c 
+c 
+c 1083-var-set-format var16 zero-hexadecimal
+c 
+c 
+c 1084-stack-list-variables 0
+c 
+c 
+c 1085-var-create  - * "i"
+c 
+c 
+c 1086-var-create  - * "j"
+c 
+c 
+c -exec-continue
+w $vCont;s:0;c:0#2a
+r <Timeout: 0 seconds>
+c 
+c 
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001a8000000fcfffffffeffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d8000000#C2
+w $mc0,40#90
+r +$9387e7ffe3cad7fe370600018327060093c7f7ff1397170093d7574093f71700b367f70093c7f7ff2320f600938616006ff0dffc000000000000000000000000#FA
+w $Z0,d4,4#ae
+r +$OK#9A
+w $vCont;c#a8
+r +$T05#B9
+w $g#67
+r +$0000000000000000a000000000100000f8000000000000000000000000000000000000000000000000000000000000000000000000000001ca000000eeffffffefffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d4000000#EA
+w $qfThreadInfo#bb
+r +$m0000l#99
+w $qsThreadInfo#c8
+r +$#00
+w $z0,d4,4#ce
+r +$OK#9A
+c 1087-stack-list-frames 0 1000
+c 
+c 
+c 1088-var-delete var16
+c 
+c 
+c 1089-var-delete var17
+c 
+c 
+c 1090-var-delete var18
+c 
+c 
+c 1091-stack-list-arguments 0 0 0
+c 
+c 
+c 1092-var-create  - * "j"
+c 
+c 
+c 1093-var-set-format var19 zero-hexadecimal
+c 
+c 
+c 1094-stack-list-variables 0
+c 
+c 
+c 1095-var-create  - * "i"
+c 
+c 
+c 1096-var-create  - * "j"
+c 
+c 
+c 1097kill
+c kill
+w $vKill;a410#33
+r +$OK#9A
+End of log

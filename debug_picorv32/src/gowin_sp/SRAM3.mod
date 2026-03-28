@@ -1,0 +1,18 @@
+-series GW1NR
+-device GW1NR-9
+-device_version C
+-package QFN88P
+-part_number GW1NR-LV9QN88PC6/I5
+
+
+-mod_name SRAM3
+-file_name SRAM3
+-path D:/GaoYun_pro/debug_picorv32_demo/debug_picorv32/src/gowin_sp/
+-type RAM_SP
+-file_type vlg
+-depth 4096
+-width 8
+-read_mode bypass
+-write_mode normal
+-reset_mode sync
+-init_file D:/GaoYun_pro/debug_picorv32_demo/picorv32/ram3.mi

@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\share2\\Windows Kits\\10\\Include\\10.0.14393.0\\um",
+                "D:\\share2\\Windows Kits\\10\\Include\\10.0.14393.0\\ucrt",
+                "D:\\share2\\Windows Kits\\10\\Include\\10.0.14393.0\\winrt",
+                "D:\\share2\\Windows Kits\\10\\Include\\10.0.14393.0\\shared",
+                "D:\\share2\\VC\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.17763.0",
+            "compilerPath": "D:/share2/VC/bin/amd64/cl.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++99",
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerArgs": []
+        }
+    ],
+    "version": 4
+}

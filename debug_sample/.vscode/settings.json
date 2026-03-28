@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ch32f10x.h": "c",
+        "*.s": "c",
+        "ch32f10x_usb.h": "c",
+        "ch32f10x_conf.h": "c"
+    },
+}

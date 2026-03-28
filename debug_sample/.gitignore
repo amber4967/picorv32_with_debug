@@ -1,0 +1,6 @@
+build
+gdb.txt
+ip_gen.py
+*.mi
+*.hex
+riscv.txt

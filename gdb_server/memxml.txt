@@ -1,0 +1,5 @@
+l<memory-map>
+<memory type="flash" start="0x00000000" length="0x08000000">
+<property name="blocksize">0x400</property>
+</memory>
+</memory-map>

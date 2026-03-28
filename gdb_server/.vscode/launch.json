@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/riscv32_gdb.exe",
+            "args": [
+                "-comCOM8",
+                "-baudrate115200",
+                "-port8090",
+                "reset",
+                "halt"
+            ],
+          
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "symbolSearchPath": "${workspaceFolder}",
+            "preLaunchTask": "编译"
+            
+        }
+    ]
+}

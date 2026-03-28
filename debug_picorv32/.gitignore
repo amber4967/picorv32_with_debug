@@ -1,0 +1,8 @@
+*.bin
+*.fs
+*.binx
+impl/pnr/*
+impl/temp/*
+*.html
+*.log
+*.xml

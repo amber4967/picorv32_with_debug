@@ -1,0 +1,58 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cppdbg",
+            "request": "launch",
+            "name": "启动程序",
+            "cwd": ".",
+            // "miDebuggerServerAddress": "localhost:8090",
+            "miDebuggerPath": "riscv-none-embed-gdb.exe",
+            "program": "${workspaceRoot}/build/riscv.elf",
+            
+            "postRemoteConnectCommands": [
+                {
+                    "text": "set remotelogfile on",
+                    "description": "remote log",
+                    "ignoreFailures": false
+                },
+                {
+                    "text": "set remotelogfile ${workspaceRoot}/packet.txt",
+                    "description": "remote log",
+                    "ignoreFailures": false
+                },
+                {
+                    "text": "set logging file ${workspaceRoot}/gdb.txt",
+                    "description": "gdb log",
+                    "ignoreFailures": false
+                },
+                {
+                    "text": "set logging on",
+                    "description": "remote log",
+                    "ignoreFailures": false
+                },
+                
+                {
+                    "text": "target remote localhost:8090",
+                    "description": "remote log",
+                    "ignoreFailures": false
+                },
+                {
+                    "text": "monitor reset_halt","description": "reset","ignoreFailures": false,
+                },
+                {
+                    "text": "stepi","description": "step","ignoreFailures": true,
+                },
+                // {
+                //     "text": "load","description": "image write","ignoreFailures": false,
+                // },
+                // {
+                //     "text": "monitor reset_halt","description": "reset","ignoreFailures": false,
+                // },
+            ]
+        }
+    ]
+}

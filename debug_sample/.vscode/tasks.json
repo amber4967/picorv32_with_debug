@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "调试",
+            "type": "shell",
+            "command": "make -C flash debug",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器:C:\\my_soft\\MounRiver\\MounRiver_Studio\\toolchain\\RISC-V Embedded GCC\\bin\\riscv-none-embed-gcc"
+        },
+        {
+            "label": "编译",
+            "type": "shell",
+            "command": "make all",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器:C:\\my_soft\\MounRiver\\MounRiver_Studio\\toolchain\\RISC-V Embedded GCC\\bin\\riscv-none-embed-gcc"
+        },{
+            "label": "下载",
+            "type": "shell",
+            "command": "make flash",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器:C:\\my_soft\\MounRiver\\MounRiver_Studio\\toolchain\\RISC-V Embedded GCC\\bin\\riscv-none-embed-gcc"
+        }
+    ]
+}

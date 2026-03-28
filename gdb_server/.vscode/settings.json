@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "cmath": "c",
+        "inc.h": "c",
+        "xmemory0": "c",
+        "*.rh": "cpp",
+        "*.h":"cpp",
+        "*.c":"cpp"
+    },
+    "[c]": {
+        "files.encoding": "gbk" //使用gbk编码
+    },
+    "[cpp]": {
+        "files.encoding": "gbk"
+    },
+    "C_Cpp_Runner.cCompilerPath": "",
+}
