@@ -211,7 +211,11 @@ always @(posedge clk ) begin
         led <= 6'd0;
     end
     else begin
-        mem_ready_bus <= (!mem_ready_bus)&&mem_valid_bus;
+        if (mem_valid_bus)
+            mem_ready_bus <= 1'b1;
+        else
+            mem_ready_bus <= 1'b0;
+            
         if((!mem_ready_bus)&&mem_valid_bus)begin
             if(mem_wstrb_bus != 'd0)begin
                 case(mem_addr_bus[31:24])

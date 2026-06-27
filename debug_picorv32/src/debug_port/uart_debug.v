@@ -192,11 +192,11 @@ always@(posedge clk or negedge resetn) begin
                 uart_wdata <= 8'h71;
             end
             8'h72:begin//读cpu 通用寄存器
-                uart_cnt <= 4'h0;
+                
                 if(uart_rxdone_pos) begin
                     reg_addr <= uart_rdata;
                     uart_state <= uart_work;
-                    uart_cnt <= 4'h0;  
+                    uart_cnt <= 4'h4;  
                 end
                 else begin
                     uart_state <= uart_parse;
@@ -344,10 +344,15 @@ always@(posedge clk or negedge resetn) begin
             uart_cnt <= 'd0;
             casex(control)
             8'h72:begin//读cpu 通用寄存器
-                uart_wdata <= 8'h72;
-                uart_start <= 1'b1;
+                uart_cnt <= uart_cnt - 1;
+                uart_state <= uart_state;
                 uart_send_state <= uart_tx_wait;
-                uart_state <= uart_resp;
+                if(uart_cnt == 'd0)begin
+                    uart_cnt <= 'd0;
+                    uart_state <= uart_resp;
+                    uart_wdata <= 8'h72;
+                    uart_start <= 1'b1;
+                end
                 if(reg_addr == 6'h3f)begin
                     response_data <= input_pc;
                 end
@@ -494,6 +499,7 @@ always@(posedge clk or negedge resetn) begin
                         uart_send_state <= uart_send;
                         uart_cnt <= uart_cnt + 1'b1;
                         if(uart_cnt == 'd4)begin
+                            uart_cnt <= 4'h0;
                             uart_state <= uart_idle;
                         end
                     end

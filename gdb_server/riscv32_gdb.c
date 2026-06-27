@@ -191,7 +191,7 @@ void gdb_server(ParameterData *parameterData,HANDLE hComm)
     HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, ClientThread,
                                                     NULL, 0, NULL);
             if (hThread)
-                CloseHandle(hThread);        // ֻ��رվ�����̼߳�������
+                CloseHandle(hThread);        // ֻ��رվ�����̼߳�������
 
 
 	while(1)
@@ -271,13 +271,6 @@ void Riscv32Init(HANDLE hComm,ParameterData *parameterData)
 {
     debug_reset(hComm);
     PurgeComm(hComm,PURGE_TXCLEAR|PURGE_RXCLEAR);
-    if(parameterData->init_halt_flag)
-    {
-        if(0 == HaltCPU(hComm))
-        {
-            puts("cpu halted");
-        }
-    }
     if(parameterData->init_reset_flag)
     {
         if(0 == ResetCPU(hComm))
@@ -285,6 +278,14 @@ void Riscv32Init(HANDLE hComm,ParameterData *parameterData)
             puts("cpu was reset");
         }
     }
+    if(parameterData->init_halt_flag)
+    {
+        if(0 == HaltCPU(hComm))
+        {
+            puts("cpu halted");
+        }
+    }
+    
 }
 void main(unsigned int argc,char*argv[])
 {
@@ -308,7 +309,7 @@ void main(unsigned int argc,char*argv[])
     COMMTIMEOUTS TimeOuts;
 	DCB usart1;
     /**
-     * @brief初始参数初始�??
+     * @brief初始参数初始�???
      * 
      */
     parameterData.COM = NULL;
@@ -338,7 +339,7 @@ void main(unsigned int argc,char*argv[])
     SetupComm(hComm,1024,1024);
 	TimeOuts.ReadIntervalTimeout=500;
 	TimeOuts.ReadTotalTimeoutMultiplier=500;
-	TimeOuts.ReadTotalTimeoutConstant=500;//设定写超�??
+	TimeOuts.ReadTotalTimeoutConstant=500;//设定写超�???
 	TimeOuts.WriteTotalTimeoutMultiplier=0;
 	TimeOuts.WriteTotalTimeoutConstant=500;
 	SetCommTimeouts(hComm,&TimeOuts);
@@ -356,6 +357,8 @@ void main(unsigned int argc,char*argv[])
     {
         CPU_HardBreakPointWrite(hComm,i,0);
     }
+    HaltCPU(hComm);
+    CPU_GeneralRegisterWrite(hComm,0x3f,0);
     gdb_server(&parameterData,hComm);
     //usart_send(hComm,buf,4,&wCount);//发送jalr x0,0(x0)指令使CPU复位
     // Sleep(1000);

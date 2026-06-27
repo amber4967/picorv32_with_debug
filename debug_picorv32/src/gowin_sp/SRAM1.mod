@@ -7,7 +7,7 @@
 
 -mod_name SRAM1
 -file_name SRAM1
--path D:/GaoYun_pro/debug_picorv32_demo/debug_picorv32/src/gowin_sp/
+-path D:/test/picorv32_with_debug/debug_picorv32/src/gowin_sp/
 -type RAM_SP
 -file_type vlg
 -depth 4096
@@ -15,4 +15,4 @@
 -read_mode bypass
 -write_mode normal
 -reset_mode sync
--init_file D:/GaoYun_pro/debug_picorv32_demo/picorv32/ram1.mi
+-init_file D:/test/picorv32_with_debug/debug_sample/ram1.mi

@@ -51,7 +51,7 @@ int DebugReset(HANDLE hComm)
 {
     char ch;
     DWORD iLen;
-    ch = 0xfe;//¹ÒÆðCPU
+    ch = 0xfe;//ï¿½ï¿½ï¿½ï¿½CPU
     usart_send(hComm,&ch,1,&iLen);
     if(iLen == 1)
     {
@@ -73,7 +73,7 @@ int HaltCPU(HANDLE hComm)
 {
     char ch;
     DWORD iLen;
-    ch = 0x70;//¹ÒÆðCPU
+    ch = 0x70;//ï¿½ï¿½ï¿½ï¿½CPU
     usart_send(hComm,&ch,1,&iLen);
     if(iLen == 1)
     {
@@ -91,7 +91,7 @@ int HaltCPU(HANDLE hComm)
     return -1;
 }
 /**
- * @brief ¸´Î»CPU£¬×¢£ºÖ»ÒªÔÚcpu´¦ÓÚ¹ÒÆðÌ¬Ê±²ÅÄÜ¸´Î»cpu£¬cpu´¦ÓÚÔËÐÐÌ¬Ê±£¬Ö»»á¸´Î»ÍâÉè
+ * @brief ï¿½ï¿½Î»CPUï¿½ï¿½×¢ï¿½ï¿½Ö»Òªï¿½ï¿½cpuï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½Ì¬Ê±ï¿½ï¿½ï¿½Ü¸ï¿½Î»cpuï¿½ï¿½cpuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¬Ê±ï¿½ï¿½Ö»ï¿½á¸´Î»ï¿½ï¿½ï¿½ï¿½
  * 
  * @param hComm 
  * @return int 
@@ -118,7 +118,7 @@ int ResetCPU(HANDLE hComm)
     return -1;
 }
 /**
- * @brief Ê¹haltedÌ¬µÄCPUÔËÐÐµ¥Ìõ»úÆ÷Ö¸Áî
+ * @brief Ê¹haltedÌ¬ï¿½ï¿½CPUï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
  * 
  * @param hComm 
  * @return int 
@@ -145,7 +145,7 @@ int StepiCPU(HANDLE hComm)
     return -1;
 }
 /**
- * @brief Ê¹CPU½øÈëÔËÐÐÌ¬
+ * @brief Ê¹CPUï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¬
  * 
  * @param hComm 
  * @return int 
@@ -192,13 +192,13 @@ int DebugStatus(HANDLE hComm,unsigned char*rdata)
     return -1;
 }
 /**
- * @brief ¼ì²écpuÊÇ·ñ´¦ÓÚhaltÌ¬£¬³£ÓÃÓÚ¼ì²éCPUÊÇ·ñÖ´ÐÐµ½¶Ïµã
+ * @brief ï¿½ï¿½ï¿½cpuï¿½Ç·ï¿½ï¿½ï¿½haltÌ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½CPUï¿½Ç·ï¿½Ö´ï¿½Ðµï¿½ï¿½Ïµï¿½
  * 
  * @param hComm 
  * @return int 
  * -1 error
- *  0 CPU´¦ÓÚÔËÐÐÌ¬
- *  1 CPU´¦ÓÚ¹ÒÆðÌ¬
+ *  0 CPUï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¬
+ *  1 CPUï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½Ì¬
  */
 int CPUisHalted(HANDLE hComm)
 {
@@ -278,7 +278,7 @@ int DebugMemAddrWrite(HANDLE hComm,unsigned int addr)
     buf[2] = (addr>>16)&0xff;
     buf[3] = (addr>>8)&0xff;
     buf[4] = (addr>>0)&0xff;
-    dump_data(buf,5);
+    // dump_data(buf,5);
     printf("addr set %08x\r\n",addr);
     usart_send(hComm,buf,5,&iLen);
     if(iLen == 5)
@@ -358,12 +358,12 @@ int DebugMemDataRead(HANDLE hComm,unsigned int *value)
         if(ch == buf[0])
         {
             *value = (buf[1] << 24) | (buf[2] << 16) | (buf[3] << 8) | (buf[4] << 0);
-            printf("data %08x\r\n",*value);
+            // printf("data %08x\r\n",*value);
             return 0;
         }
         else
         {
-            printf("data error  %02x\r\n",buf[0]);
+            // printf("data error  %02x\r\n",buf[0]);
             return -2;
         }
     }
@@ -372,7 +372,7 @@ int DebugMemDataRead(HANDLE hComm,unsigned int *value)
 }
 
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æÐ´Ò»¸ö×ÖµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½Ð´Ò»ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @param hComm 
  * @param addr 
@@ -405,7 +405,7 @@ int CPUmemoryWriteWord(HANDLE hComm,unsigned int addr,unsigned int wdata)
     }
 }
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æ¶ÁÒ»¸ö×ÖµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿?
  * 
  * @param hComm 
  * @param addr 
@@ -438,7 +438,7 @@ int CPUmemoryReadWord(HANDLE hComm,unsigned int addr,unsigned int *rdata)
     }
 }
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æÐ´°ë¸ö×ÖµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿?
  * 
  * @param hComm 
  * @param addr 
@@ -484,7 +484,7 @@ int CPUmemoryWriteHalfWord(HANDLE hComm,unsigned int addr,unsigned short wdata)
     }
 }
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æ¶Á°ë¸ö×ÖµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @param hComm 
  * @param addr 
@@ -525,7 +525,7 @@ int CPUmemoryReadHalfWord(HANDLE hComm,unsigned int addr,unsigned short *rdata)
     }
 }
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æÐ´Ò»¸ö×Ö½ÚµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½Ð´Ò»ï¿½ï¿½ï¿½Ö½Úµï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @param hComm 
  * @param addr 
@@ -581,7 +581,7 @@ int CPUmemoryWriteByte(HANDLE hComm,unsigned int addr,unsigned char wdata)
 }
 
 /**
- * @brief Í¨¹ýDebug¶ÔÄÚ´æ¶Á°ë¸ö×ÖµÄÊý¾Ý
+ * @brief Í¨ï¿½ï¿½Debugï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @param hComm 
  * @param addr 
@@ -635,7 +635,7 @@ int CPU_GeneralRegisterWrite(HANDLE hComm,unsigned int index,unsigned int wdata)
     unsigned char buf[6] = {0x73};
     DWORD iLen;
     unsigned char ch;
-    buf[1] = index;//Í¨ÓÃ¼Ä´æÆ÷±àºÅ
+    buf[1] = index;//Í¨ï¿½Ã¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     buf[2] = (wdata >> 24)&0xff;
     buf[3] = (wdata >> 16)&0xff;
     buf[4] = (wdata >> 8 )&0xff;
@@ -661,7 +661,7 @@ int CPU_GeneralRegisterRead(HANDLE hComm,unsigned int index,unsigned int *rdata)
     unsigned char buf[6] = {0x72};
     unsigned char ch=0x72;
     DWORD iLen;
-    buf[1] = index;//Í¨ÓÃ¼Ä´æÆ÷±àºÅ
+    buf[1] = index;//Í¨ï¿½Ã¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     usart_send(hComm,buf,2,&iLen);
     if(iLen != 2)
         return -1;
@@ -682,7 +682,7 @@ int CPU_HardBreakPointWrite(HANDLE hComm,unsigned int index,unsigned int wdata)
     unsigned char buf[6] = {0x79};
     DWORD iLen;
     unsigned char ch=0x79;
-    buf[1] = index;//Í¨ÓÃ¼Ä´æÆ÷±àºÅ
+    buf[1] = index;//Í¨ï¿½Ã¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     buf[2] = (wdata >> 24)&0xff;
     buf[3] = (wdata >> 16)&0xff;
     buf[4] = (wdata >> 8 )&0xff;
@@ -708,7 +708,7 @@ int CPU_HardBreakPointRead(HANDLE hComm,unsigned int index,unsigned int *rdata)
     unsigned char buf[6] = {0x78};
     unsigned char ch = 0x78;
     DWORD iLen;
-    buf[1] = index;//Í¨ÓÃ¼Ä´æÆ÷±àºÅ
+    buf[1] = index;//Í¨ï¿½Ã¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
     usart_send(hComm,buf,2,&iLen);
     if(iLen != 2)
         return -1;
@@ -732,7 +732,7 @@ int CPU_HardBreakPointAdd(HANDLE hComm,unsigned int addr)
     {
         if(0 == (stat = CPU_HardBreakPointRead(hComm,i,&rdata)) )
         {
-            if( (rdata&(~1)) != 1)
+            if( (rdata&(~1)) == 0)
             {
                 if(0==CPU_HardBreakPointWrite(hComm,i,addr|1))
                 {
@@ -766,11 +766,14 @@ int CPU_HardBreakPointDel(HANDLE hComm,unsigned int addr)
     {
         if(0 == (stat = CPU_HardBreakPointRead(hComm,i,&rdata)) )
         {
-            if( (rdata&(~1)) == 1)
+            if( (rdata&(~1)) == addr)
             {
-                if(0!=CPU_HardBreakPointWrite(hComm,i,addr|1))
+                if(rdata&1)
                 {
-                    return 1;
+                    if(0!=CPU_HardBreakPointWrite(hComm,i,0))
+                    {
+                        return 1;
+                    }
                 }
             }
             
