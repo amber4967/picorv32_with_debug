@@ -6,3 +6,4 @@ impl/temp/*
 *.html
 *.log
 *.xml
+*.user

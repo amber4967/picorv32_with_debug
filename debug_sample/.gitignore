@@ -4,3 +4,4 @@ ip_gen.py
 *.mi
 *.hex
 riscv.txt
+packet.txt
